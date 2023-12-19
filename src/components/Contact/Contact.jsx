@@ -2,7 +2,7 @@ import { IconWrapper, Name, Phone } from './Contact.styled'
 import PropTypes from 'prop-types'
 import { ImBin } from 'react-icons/im'
 import { useDispatch } from 'react-redux'
-import { removeContact } from '../../redux/contactsSlice'
+import { removeContact } from '../../redux/operations'
 
 Contact.propTypes = {
   contact: PropTypes.shape({
@@ -21,7 +21,7 @@ export function Contact({ contact: { id, name, phone } }) {
   return (
     <>
       <Name>{name}</Name>
-      <Phone>tel.:{phone}</Phone>
+      <Phone>tel.: {phone}</Phone>
       <IconWrapper>
         <ImBin size={20} onClick={() => handleRemoveContact(id)} />
       </IconWrapper>

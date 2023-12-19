@@ -1,10 +1,10 @@
 import { FilterInputStyled } from './FilterInputStyled';
 import { useDispatch, useSelector } from 'react-redux'
-import { getFilterValue } from '../../redux/selectors'
-import { setFilterValue } from '../../redux/filterSlice'
+import { selectFilterValue } from '../../redux/selectors'
+import { setFilterValue } from '../../redux/contactsBookSlice'
 
 export function Filter() {
-  const filterValue = useSelector(getFilterValue)
+  const filterValue = useSelector(selectFilterValue)
   const dispatch = useDispatch()
 
   return (

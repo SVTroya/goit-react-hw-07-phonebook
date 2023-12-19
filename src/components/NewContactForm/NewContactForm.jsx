@@ -1,12 +1,12 @@
 import { ErrorMessage, Form, FormWrapper, InputWrapper } from './NewContactForm.styled'
 import { useDispatch, useSelector } from 'react-redux'
-import { getContacts } from '../../redux/selectors'
+import { selectContacts } from '../../redux/selectors'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
-import { addContact } from '../../redux/contactsSlice'
+import { addContact } from '../../redux/operations'
 
 export function NewContactForm() {
-  const contacts = useSelector(getContacts)
+  const contacts = useSelector(selectContacts)
   const dispatch = useDispatch()
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm()
@@ -32,7 +32,7 @@ export function NewContactForm() {
     <FormWrapper>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <InputWrapper>
-          <span>Name</span>
+          <span>Full Name</span>
           <input
             {...register('nameInput', {
               required: 'Name is required!',
