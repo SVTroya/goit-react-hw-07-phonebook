@@ -11,6 +11,7 @@ const contactsBookInitialState = {
 }
 
 function handlePending(state) {
+  state.contacts.error = null
   state.contacts.isLoading = true
 }
 

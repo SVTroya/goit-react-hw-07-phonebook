@@ -1,7 +1,7 @@
 import { ContactsBookContainer } from './App.styled'
 import { NewContactForm } from './NewContactForm/NewContactForm'
 import { ListOfContacts } from './ListOfContacts/ListOfContacts'
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
@@ -17,6 +17,10 @@ export function App() {
   useEffect(() => {
     dispatch(fetchContacts())
   }, [dispatch])
+
+  useEffect(() => {
+   error && toast.warn(error)
+  }, [error])
 
   const override = {
     display: 'block',
@@ -37,7 +41,6 @@ export function App() {
           aria-label='Loading Spinner'
           data-testid='loader'
           color='#799a86' />
-        {error && <p>{error}</p>}
       </ContactsBookContainer>
       <ToastContainer
         position='top-center'
